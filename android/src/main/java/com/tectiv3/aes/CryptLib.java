@@ -166,7 +166,6 @@ public class CryptLib {
             // (decryption)
             _out = new String(decryptedVal);
         }
-        System.out.println(_out);
         return _out; // return encrypted/decrypted string
     }
 
