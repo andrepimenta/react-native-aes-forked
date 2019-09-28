@@ -14,10 +14,20 @@
 @implementation AesCrypt
 
 + (NSString *) toHex:(NSData *)nsdata {
-    NSString * hexStr = [NSString stringWithFormat:@"%@", nsdata];
-    for(NSString * toRemove in [NSArray arrayWithObjects:@"<", @">", @" ", nil])
-        hexStr = [hexStr stringByReplacingOccurrencesOfString:toRemove withString:@""];
-    return hexStr;
+    NSMutableData *result = [NSMutableData dataWithLength:2*nsdata.length];
+        unsigned const char* src = nsdata.bytes;
+        unsigned char* dst = result.mutableBytes;
+        unsigned char t0, t1;
+
+        for (int i = 0; i < nsdata.length; i ++ ) {
+             t0 = src[i] >> 4;
+             t1 = src[i] & 0x0F;
+
+             dst[i*2] = 48 + t0 + (t0 / 10) * 39;
+             dst[i*2+1] = 48 + t1 + (t1 / 10) * 39;
+        }
+
+        return [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
 }
 
 + (NSData *) fromHex: (NSString *)string {
