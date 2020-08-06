@@ -1,4 +1,4 @@
-package com.tectiv3.aes;
+package com.tectiv3.aesforked;
 
 import android.util.Base64;
 
@@ -25,7 +25,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class RCTAes extends ReactContextBaseJavaModule {
+public class RCTAesForked extends ReactContextBaseJavaModule {
 
     private static final String CIPHER_ALGORITHM = "AES";
     public static final String HMAC_SHA_256 = "HmacSHA256";
@@ -34,13 +34,13 @@ public class RCTAes extends ReactContextBaseJavaModule {
     private static final Integer ROUNDS = 5000;
     private static final Integer SHA256_DIGEST_LENGTH = 16;
 
-    public RCTAes(ReactApplicationContext reactContext) {
+    public RCTAesForked(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "RCTAes";
+        return "RCTAesForked";
     }
     @ReactMethod
     public void encrypt(final String plainText, final String key,final String iv, Promise promise){
