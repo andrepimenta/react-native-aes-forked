@@ -1,5 +1,5 @@
 //
-//  AesCrypt.m
+//  AesCryptForked.m
 //
 //  Created by tectiv3 on 10/02/17.
 //  Copyright © 2017 tectiv3. All rights reserved.
@@ -9,9 +9,9 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonKeyDerivation.h>
 
-#import "AesCrypt.h"
+#import "AesCryptForked.h"
 
-@implementation AesCrypt
+@implementation AesCryptForked
 
 + (NSString *) toHex:(NSData *)nsdata {
     NSMutableData *result = [NSMutableData dataWithLength:2*nsdata.length];
